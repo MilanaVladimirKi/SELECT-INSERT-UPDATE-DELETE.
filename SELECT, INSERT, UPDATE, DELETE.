@@ -10,6 +10,10 @@ SELECT Name, Financing, Id FROM Departments;
 ![текст](https://sun9-34.userapi.com/impg/TEaVCcAf337DYpTzNiG_0OVS_cOB7C4qKe4feQ/wqcz3ynIsh8.jpg?size=1920x1080&quality=95&sign=77da14de5f880f281a1af72e160ca837&type=album)
 
 2. Вывести названия групп и их рейтинги с уточнением имен полей именем таблицы.
+SELECT `Groups`.Name AS Groups_Name, `Groups`.Rating AS Groups_Rating FROM `Groups`;
+
+![текст](https://sun9-12.userapi.com/impg/6xK-Do9Ieex0Iv_jDua3JwfqPxxQfoBBIERRmw/tU1iHgAC7v0.jpg?size=1920x1080&quality=95&sign=5fb8e0a69aec80a95f6e642b0e48a69e&type=album)
+
 SELECT `Groups`.Name, `Groups`.Rating FROM `Groups`;
 3. Вывести для преподавателей их фамилию, процент ставки по отношению к надбавке и процент ставки по отношению к зарплате (сумма ставки и надбавки).
 SELECT Name, Salary * 100 / Premium, Salary * 100 / (Salary + Premium) FROM Teachers;
@@ -27,6 +31,10 @@ SELECT Name FROM Faculties WHERE Name != "Computer Science";
 8. Вывести фамилии и должности преподавателей, которые не являются профессорами. 
 SELECT Surname, Position FROM Teachers WHERE isProfessor != 1;
 9. Вывести фамилии, должности, ставки и надбавки ассистентов, у которых надбавка в диапазоне от 160 до 550.
+SELECT Surname, Position, Salary, Premium FROM Teachers WHERE isAssistant = 1 AND Premium BETWEEN 160 AND 550;
+
+![текст](https://sun9-12.userapi.com/impg/BR5rk0fWRN2s4vqjQ4GuAnmWRI_ET1wFreMB9w/0-NC6QwdspI.jpg?size=1920x1080&quality=95&sign=b26db67136b6b4c420129fb4422f6d0e&type=album)
+
 SELECT Surname, Position, Salary, Premium FROM Teachers WHERE isAssistant = 1 AND Premium > 160 AND Premium < 550;
 10. Вывести фамилии и ставки ассистентов.
 SELECT Surname, Salary FROM Teachers WHERE isAssistant = 1;
@@ -40,6 +48,10 @@ SELECT Name AS `Name of Department` FROM Departments WHERE Name < "Software Deve
 13. Вывести фамилии ассистентов, имеющих зарплату (сумма ставки и надбавки) не более 1200.
 SELECT Surname FROM Teachers WHERE isAssistant = 1 AND (Salary + Premium) < 1200;
 14. Вывести названия групп 5-го курса, имеющих рейтинг в диапазоне от 2 до 4.
+SELECT Name FROM `Groups` WHERE Year = 5 AND Rating BETWEEN 2 AND 4;
+
+![текст](https://sun9-52.userapi.com/impg/0_1RThHS6pqWOYaVRU8wc4Rm4WxYScQYdlyxEw/l_ofq0fUzBU.jpg?size=1920x1080&quality=95&sign=f4ecf05a0d38dd3c0b99411236334567&type=album)
+
 SELECT Name FROM `Groups` WHERE Year = 5 AND Rating <= 4 AND Rating >= 2;
 15. Вывести фамилии ассистентов со ставкой меньше 550 или надбавкой меньше 200. 
 SELECT Surname FROM Teachers WHERE isAssistant = 1 AND (Salary < 550 OR Premium < 200); 
